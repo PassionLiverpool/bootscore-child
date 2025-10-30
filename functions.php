@@ -37,6 +37,8 @@ add_action( 'init', function() {
 // Disable both Gutenberg and the Classic editor for pages.
 add_action( 'init', function() {
     remove_post_type_support( 'page', 'editor' );
+    remove_post_type_support( 'team-member', 'editor' );
+    remove_post_type_support( 'testimonial', 'editor' );
 });
 
 add_action( 'wp_enqueue_scripts', function() {
@@ -55,7 +57,11 @@ add_filter( 'acf/fields/flexible_content/layout_title', function( $title, $field
     $section_label  = $settings['section_label'] ?? '';
 
     $content = get_sub_field( 'section_content' );
-    $header = $content['header'] ?? '';
+    if ($content) {
+        $header = $content['header'] ?? '';
+    } else {
+        $header = get_sub_field('header');
+    }
 
     if ( $section_label ) {
         $title .= ' – ' . esc_html( $section_label );
