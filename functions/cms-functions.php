@@ -45,3 +45,20 @@ add_filter( 'acf/fields/flexible_content/layout_title', function( $title, $field
     return $title;
 
 }, 10, 4 );
+
+// Exclude CPTs from link modal in acf
+function exclude_cpt_from_link_modal( $query ) {
+    $excluded_post_types = ['testimonial', 'team-member']; 
+
+    if ( isset( $query['post_type'] ) && is_array( $query['post_type'] ) ) {
+        foreach ( $excluded_post_types as $excluded_post_type ) {
+            $key = array_search( $excluded_post_type, $query['post_type'] );
+            if ( $key !== false ) {
+                unset( $query['post_type'][ $key ] );
+            }
+        }
+    }
+
+    return $query;
+}
+add_filter( 'wp_link_query_args', 'exclude_cpt_from_link_modal' );
