@@ -1,0 +1,20 @@
+{
+  "name": "Passion",
+  "version": "1.0.0",
+  "description": "[![Github All Releases](https://img.shields.io/github/downloads/bootscore/bootscore-child/total.svg)](https://github.com/bootscore/bootscore-child/releases) [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore-child?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore-child)",
+  "homepage": "https://github.com/PassionLiverpool/bootscore-child#readme",
+  "bugs": {
+    "url": "https://github.com/PassionLiverpool/bootscore-child/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PassionLiverpool/bootscore-child.git"
+  },
+  "license": "ISC",
+  "author": "Joy",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "watch-css": "cleancss --skip-rebase -o assets/css/main.min.css assets/css/main.css --watch"
+  }
+}
