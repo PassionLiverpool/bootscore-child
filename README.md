@@ -11,3 +11,11 @@ Start developing your new WordPress project right away in a upgrade-safe way usi
 2. In your admin panel, go to Appearance > Themes and click the Add New button.
 3. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
 4. Click Activate to use your new theme right away.
+
+## Minifying CSS
+1. First, make sure you have node and npm installed.
+If you are on a mac you can install it using homebrew (https://formulae.brew.sh/formula/node)
+You can also install it directly from npm (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+2. All styling changes should be made in the scss files. Bootscore automatically compiles the scss into main.css
+3. While developing, run `npm run watch-css` to minify CSS. This will compile the main.css file in assets/css to main.min.css
