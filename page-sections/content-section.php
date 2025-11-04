@@ -21,10 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Appearance
     $content_section_style = get_sub_field('content_section_style') ?? 'media-bottom';
-    $content_appearance = get_sub_field('section_appearance');
-    $background_color = $content_appearance['background_colour'];
-    $padding_top = $content_appearance['padding_top'];
-    $padding_bottom = $content_appearance['padding_bottom'];
+    $section_appearance = get_sub_field('section_appearance');
+    $background_color = $section_appearance['background_colour'];
+    $padding_top = $section_appearance['padding_top'];
+    $padding_bottom = $section_appearance['padding_bottom'];
 
     include get_stylesheet_directory() . '/components/content-settings.php';
 ?>
