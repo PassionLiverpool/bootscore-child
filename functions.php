@@ -34,5 +34,6 @@ add_action( 'init', function() {
     ini_set( 'default_charset', 'UTF-8' );
 });
 
+require_once get_stylesheet_directory() . '/functions/style-functions.php';
 require_once get_stylesheet_directory() . '/functions/cms-functions.php';
 require_once get_stylesheet_directory() . '/functions/template-functions.php';
