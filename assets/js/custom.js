@@ -1,5 +1,5 @@
 jQuery(function ($) {
 
-    // Do stuff here
+    $('.modal-video-button').modalVideo();
 
 }); // jQuery End

@@ -23,6 +23,11 @@ function bootscore_child_enqueue_styles() {
 
   // style.css
   wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+
+  //modal video - jquery
+	wp_enqueue_script('modal-video', get_stylesheet_directory_uri() . '/assets/js/modal-video/jquery-modal-video.min.js', array(), '2.4.8', array('strategy' => 'defer', 'in_footer' => true));
+	wp_enqueue_style('modal-video', get_stylesheet_directory_uri() . '/assets/js/modal-video/modal-video.min.css', array(), '2.4.8', 'all');
+	
   
   // custom.js
   // Get modification time. Enqueue file with modification date to prevent browser from loading cached scripts when file content changes. 
