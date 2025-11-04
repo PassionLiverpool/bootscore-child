@@ -15,6 +15,6 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "watch-css": "cleancss --skip-rebase -o assets/css/main.min.css assets/css/main.css --watch"
+    "watch-css": "cleancss -o assets/css/main.min.css assets/css/main.css --watch"
   }
 }

@@ -1,0 +1,18 @@
+.btn {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+
+    &--primary {
+        background-color: $blue;
+        color: white;
+    }
+
+    &:hover {
+        filter: brightness(0.8);
+    }
+
+    &:focus {
+        text-decoration: underline;
+    }
+}
