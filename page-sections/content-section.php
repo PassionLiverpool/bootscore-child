@@ -64,11 +64,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         </div>
         
+        <!-- Media -->
         <?php if($image || $video): ?>
             <div class="content-section__media">
+                <!-- Image -->
                 <?php if($media_type == "image"): ?>
                     <div class="content-section__image">
                         <?php echo wp_get_attachment_image($image['id'], 'medium'); ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Video -->
+                 <?php if($media_type == "video"): ?>
+                    <div class="content-section__video">
+                        <?php echo $video; ?>
                     </div>
                 <?php endif; ?>
             </div>

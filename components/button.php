@@ -14,17 +14,12 @@ if ($button_link) :
         <?php
         // --- ICON ---
         if ( $button_icon ) {
-            // If the field contains a Dashicon class name
             if ( str_starts_with( $button_icon, 'dashicons-' ) ) {
                 echo '<span class="btn__icon dashicons ' . esc_attr( $button_icon ) . '"></span>';
             }
-
-            // If the field looks like a URL (media library or custom)
             elseif ( filter_var( $button_icon, FILTER_VALIDATE_URL ) ) {
                 echo '<img class="btn__icon" src="' . esc_url( $button_icon ) . '" alt="">';
             }
-
-            // Otherwise, treat it as raw text (fallback)
             else {
                 echo esc_html( $button_icon );
             }
