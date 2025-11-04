@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     // Media
     $media_type = $content['media_type'] ?? 'none';
     $image = $content['image'] ?? '';
-    $video = $content['video'] ?? '';
-    $video_thumbnail = $content['video_thumbnail'] ?? '';
+    $content_video = $content['video'] ?? '';
+    $content_video_thumbnail = $content['video_thumbnail'] ?? '';
 
     // Buttons
     $primary_button = $content['content_section_primary_button_button'];
@@ -78,20 +78,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- Video -->
                  <?php
                  if($media_type == "video"):
-                    $video_id = '';
-                    $pattern = '%(?:https?:)?//(?:www\.|m\.)?(?:youtube(?:-nocookie)?\.com/(?:watch\?v=|embed/|oembed\?url=)|youtu\.be/)([A-Za-z0-9_-]{11})%ix';
-
-                    if (preg_match($pattern, $video, $matches)) {
-                        $video_id = $matches[1];
-                    }
                 ?>
                     <div class="content-section__video">
-                        <div class="video-thumbnail">
-                            <button type="button"
-                                    class="content-button white-outline-button modal-video-button"
-                                    data-video-id="<?php echo esc_attr($video_id) ?>">Play Video</button>
-                            <?php echo wp_get_attachment_image($video_thumbnail['id'], 'medium'); ?>
-                        </div>
+                        <?php
+                            $video = $content_video;
+                            $video_thumbnail = $content_video_thumbnail;
+                            include get_stylesheet_directory() . '/components/video.php';
+                        ?>
                     </div>
                 <?php endif; ?>
             </div>
