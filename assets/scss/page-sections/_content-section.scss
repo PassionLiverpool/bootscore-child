@@ -1,7 +1,6 @@
 .content-section {
     .container {
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
@@ -26,5 +25,23 @@
 
     &__image {
         background-position: cover;
+    }
+
+    .style{
+        &--media-bottom {
+            flex-direction: column;
+        }
+
+        &--media-top {
+            flex-direction: column-reverse;
+        }
+        
+        &--media-right {
+            flex-direction: row;
+        }
+
+        &--media-left {
+            flex-direction: row-reverse;
+        }
     }
 }

@@ -20,16 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
     $secondary_button = $content['content_section_secondary_button_button'];
 
     // Appearance
+    $content_section_style = get_sub_field('content_section_style') ?? 'media-bottom';
     $content_appearance = get_sub_field('section_appearance');
     $background_color = $content_appearance['background_colour'];
     $padding_top = $content_appearance['padding_top'];
     $padding_bottom = $content_appearance['padding_bottom'];
+
+    include get_stylesheet_directory() . '/components/content-settings.php';
 ?>
 
 <section class="content-section background--<?php echo $background_color ?>"
+         <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
          style="padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
 >
-    <div class="container">
+    <div class="container style--<?php echo $content_section_style; ?>">
         <div class="content-section__content">
             <!-- Header -->
             <?php if ( $header ) : ?>
@@ -91,9 +95,3 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php endif; ?>
     </div>
 </section>
-
-<?php
-    // echo '<pre>';
-    // print_r( get_fields() );
-    // echo '</pre>';
-?>
