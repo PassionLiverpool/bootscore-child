@@ -23,7 +23,7 @@
         <!-- Excerpt -->
         <?php if ($excerpt) : ?>
             <p class="blog-post__excerpt">
-                <?php echo esc_html( wp_trim_words( $excerpt, 25 ) ); ?>
+                <?php echo esc_html( wp_trim_words( $excerpt, 40 ) ); ?>
             </p>
         <?php endif; ?>
 
