@@ -3,8 +3,7 @@
     $featured_image = get_the_post_thumbnail( $blog_post->ID, 'medium' );
     $title = get_the_title( $blog_post->ID );
     $excerpt = get_the_excerpt( $blog_post->ID );
-    $max_length = 125;
-    $truncated_title = wp_html_excerpt( $title, $max_length ) . ( strlen( $title ) > $max_length ? '…' : '' );
+    $truncated_title = wp_trim_words( $title, 15 );
 ?>
 
 <li class="blog-post blog-post--large">
@@ -24,7 +23,7 @@
         <!-- Excerpt -->
         <?php if ($excerpt) : ?>
             <p class="blog-post__excerpt">
-                <?php echo esc_html( wp_trim_words( $excerpt, 40 ) ); ?>
+                <?php echo esc_html( wp_trim_words( $excerpt, 25 ) ); ?>
             </p>
         <?php endif; ?>
 
