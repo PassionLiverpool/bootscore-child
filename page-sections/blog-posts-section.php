@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $header_style = get_sub_field('header_style') ?? 'h2';
 
     // Appearance
-    $blog_posts_style = get_sub_field('blog_posts_style') ?? 'media-bottom';
+    $blog_posts_style = get_sub_field('blog_posts_style') ?? 'small';
     $section_appearance = get_sub_field('section_appearance');
     $background_color = $section_appearance['background_colour'];
     $padding_top = $section_appearance['padding_top'];
@@ -37,25 +37,9 @@ if ( ! defined( 'ABSPATH' ) ) {
             
             <!--  Blog Posts -->
             <?php if( $blog_posts ): ?>
-                <ul class="blog-posts">
-                <?php foreach( $blog_posts as $blog_post ):  
-                    $permalink = get_permalink( $blog_post->ID );
-                    $title = get_the_title( $blog_post->ID );
-                    $featured_image = get_the_post_thumbnail( $blog_post->ID, 'medium' );
-                ?>
-                    <li class="blog-post blog-post--small">
-                        <?php if ( $featured_image ) : ?>
-                            <a href="<?php echo esc_url( $permalink ); ?>" class="blog-post__image">
-                                <?php echo $featured_image; ?>
-                            </a>
-                        <?php endif; ?>
-                        <div class="blog-post__content">
-                            <h3><?php echo esc_html( $title ); ?></h3>
-                            <a href="<?php echo esc_url( $permalink ); ?>" class="btn btn--primary">
-                                Read More
-                            </a>
-                        </div>
-                    </li>
+                <ul class="blog-posts blog-posts--<?php echo $blog_posts_style; ?>">
+                <?php foreach( $blog_posts as $blog_post ): ?>
+                    <?php include get_stylesheet_directory() . '/components/blog-post-card-'.$blog_posts_style.'.php'; ?>
                 <?php endforeach; ?>
                 </ul>
                 <?php wp_reset_postdata(); ?>

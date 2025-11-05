@@ -2,3 +2,12 @@
   Use this file to add your own custom utility classes.
   https://getbootstrap.com/docs/5.3/utilities/api/
 */
+
+// Responsive breakpoints mixin
+@mixin responsive($size) {
+  $query: map-get($breakpoints, $size);
+
+    @media #{$query} {
+      @content;
+  }
+}

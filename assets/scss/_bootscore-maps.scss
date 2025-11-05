@@ -1,0 +1,18 @@
+// Map for responsive breakpoints
+$breakpoints: (
+  "xs": (
+    min-width: $mobile-portrait,
+  ),
+  "s": (
+    min-width: $mobile-landscape,
+  ),
+  "md": (
+    min-width: $tablet,
+  ),
+  "lg": (
+    min-width: $desktop,
+  ),
+  "xl": (
+    min-width: $desktop-wide,
+  )
+); 
