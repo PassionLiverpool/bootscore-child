@@ -7,13 +7,18 @@
 ?>
 
 <li class="blog-post blog-post--small">
+    <!-- Featured image -->
     <?php if ( $featured_image ) : ?>
         <a href="<?php echo esc_url( $permalink ); ?>" class="blog-post__image">
             <?php echo $featured_image; ?>
         </a>
     <?php endif; ?>
+
     <div class="blog-post__content">
+        <!-- Blog post title -->
         <h3 class="blog-post__title"><?php echo esc_html( $truncated_title ); ?></h3>
+        
+        <!-- Read more button -->
         <a href="<?php echo esc_url( $permalink ); ?>" class="btn btn--primary">
             Read More
         </a>

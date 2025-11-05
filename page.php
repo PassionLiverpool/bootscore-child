@@ -28,7 +28,12 @@ get_header();
       <main id="main" class="site-main">
 
         <div class="entry-content">
-          <?php the_content(); ?>
+          <?php
+          // Render ACF flexible page sections for this page (safe, non-recursive)
+          if ( function_exists( 'render_theme_page_sections' ) ) {
+              render_theme_page_sections( get_the_ID() );
+          }
+          ?>
         </div>
         
         <?php do_action( 'bootscore_before_entry_footer', 'page' ); ?>

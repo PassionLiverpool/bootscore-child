@@ -22,23 +22,36 @@ add_filter( 'sidebars_widgets', 'disable_sidebar_widgets' );
 /*
  * Page section templates
  */
-function include_theme_page_sections() {
-	
-	//page section elements
-	if(have_rows('flexible_page_sections')) : 
+// Helper: return sections HTML for a given post ID (safe, does not alter main loop)
+function get_theme_page_sections_html( $post_id = null ) {
+    if ( ! function_exists( 'have_rows' ) ) {
+        return ''; // ACF not active
+    }
+    $post_id = $post_id ? $post_id : get_the_ID();
+    if ( ! $post_id ) {
+        return '';
+    }
 
-		while (have_rows('flexible_page_sections')): the_row();
+    $html = '';
 
-			$layout = str_replace('_', '-', get_row_layout());
-			$template_path = locate_template("page-sections/{$layout}.php");
-			
-			//if file exists, include it
-			if ($template_path) 
-				include $template_path;
+    // Use have_rows with $post_id so we don't touch the global loop
+    if ( have_rows( 'flexible_page_sections', $post_id ) ) {
+        while ( have_rows( 'flexible_page_sections', $post_id ) ) {
+            the_row();
+            $layout = str_replace( '_', '-', get_row_layout() );
+            $template_path = locate_template( "page-sections/{$layout}.php" );
+            if ( $template_path ) {
+                ob_start();
+                include $template_path;
+                $html .= ob_get_clean();
+            }
+        }
+    }
 
-		endwhile;
-
-	endif;
-	
+    return $html;
 }
-add_action('the_content', 'include_theme_page_sections');
+
+// Renderer: echo sections (call from templates)
+function render_theme_page_sections( $post_id = null ) {
+    echo get_theme_page_sections_html( $post_id );
+}
