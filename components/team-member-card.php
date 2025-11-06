@@ -1,5 +1,4 @@
 <?php
-    $permalink = get_permalink( $blog_post->ID );
     $featured_image = get_the_post_thumbnail( $team_member->ID, 'medium' );
     $name = get_the_title( $team_member->ID );
     $title = get_field('job_title', $team_member->ID );
@@ -28,8 +27,10 @@
         <?php endif; ?>
 
         <!-- Job description -->
-        <p class="team-member__description">
-            <?php echo esc_html( $job_description ); ?>
-        </p>
+        <?php if ($job_description) : ?>
+            <p class="team-member__description">
+                <?php echo esc_html( $job_description ); ?>
+            </p>
+        <?php endif; ?>
     </div>
 </li>
