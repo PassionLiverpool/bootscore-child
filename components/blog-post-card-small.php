@@ -10,6 +10,7 @@
     <!-- Featured image -->
     <?php if ( $featured_image ) : ?>
         <a href="<?php echo esc_url( $permalink ); ?>" class="blog-post__image">
+            <span class="screen-reader-text"> Read more about <?php echo esc_html( $title ); ?></span>
             <?php echo $featured_image; ?>
         </a>
     <?php endif; ?>
@@ -17,10 +18,10 @@
     <div class="blog-post__content">
         <!-- Blog post title -->
         <h3 class="blog-post__title"><?php echo esc_html( $truncated_title ); ?></h3>
-        
+
         <!-- Read more button -->
         <a href="<?php echo esc_url( $permalink ); ?>" class="btn btn--primary">
-            Read More
+            Read More <span class="screen-reader-text"> about <?php echo esc_html( $title ); ?></span>
         </a>
     </div>
 </li>
