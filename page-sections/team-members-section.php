@@ -15,6 +15,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Team Members
     $team_members = get_sub_field('team_members');
+    $display_all_team_members = get_sub_field('display_all_team_members') ?? false;
+
+    // Determine which team members to display
+    if ( $display_all_team_members ) {
+        $team_members = get_posts([
+            'post_type'      => 'team-member',
+            'posts_per_page' => -1, // All published
+            'post_status'    => 'publish',
+            'orderby'        => 'menu_order', // Optional, if using order
+            'order'          => 'ASC',
+        ]);
+    }
 
     include get_stylesheet_directory() . '/components/content-settings.php';
 ?>

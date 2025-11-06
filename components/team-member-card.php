@@ -14,7 +14,7 @@
         </div>
     <?php endif; ?>
 
-    <div class="team-member__description">
+    <div class="team-member__text">
         <!-- Team Member name -->
         <h3 class="team-member__name">
             <?php echo esc_html( $name ); ?>
