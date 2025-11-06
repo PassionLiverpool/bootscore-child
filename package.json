@@ -16,5 +16,8 @@
   "main": "index.js",
   "scripts": {
     "watch-css": "cleancss -o assets/css/main.min.css assets/css/main.css --watch"
+  },
+  "dependencies": {
+    "basiclightbox": "^5.0.4"
   }
 }

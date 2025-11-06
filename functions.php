@@ -27,7 +27,6 @@ function bootscore_child_enqueue_styles() {
   //modal video - jquery
 	wp_enqueue_script('modal-video', get_stylesheet_directory_uri() . '/assets/js/modal-video/jquery-modal-video.min.js', array(), '2.4.8', array('strategy' => 'defer', 'in_footer' => true));
 	wp_enqueue_style('modal-video', get_stylesheet_directory_uri() . '/assets/js/modal-video/modal-video.min.css', array(), '2.4.8', 'all');
-	
   
   // custom.js
   // Get modification time. Enqueue file with modification date to prevent browser from loading cached scripts when file content changes. 
@@ -40,5 +39,5 @@ add_action( 'init', function() {
 });
 
 require_once get_stylesheet_directory() . '/functions/style-functions.php';
-require_once get_stylesheet_directory() . '/functions/cms-functions.php';
-require_once get_stylesheet_directory() . '/functions/template-functions.php';
+require_once get_stylesheet_directory() . '/functions/acf-functions.php';
+require_once get_stylesheet_directory() . '/functions/theme-functions.php';
