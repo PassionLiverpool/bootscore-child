@@ -1,5 +1,5 @@
 <?php
-    $featured_image = get_the_post_thumbnail( $testimonial->ID, 'medium' );
+    $featured_image = get_the_post_thumbnail( $testimonial->ID, 'medium', false, array('loading'=>'lazy') );
     $name = get_the_title( $testimonial->ID );
     $subheading = get_field('subheading', $testimonial->ID );
     $testimonial = get_field('testimonial', $testimonial->ID );

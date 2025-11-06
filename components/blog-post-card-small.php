@@ -1,6 +1,6 @@
 <?php
     $permalink = get_permalink( $blog_post->ID );
-    $featured_image = get_the_post_thumbnail( $blog_post->ID, 'medium' );
+    $featured_image = get_the_post_thumbnail( $blog_post->ID, 'medium', false, array('loading'=>'lazy') );
     $title = get_the_title( $blog_post->ID );
     $max_length = 60;
     $truncated_title = wp_html_excerpt( $title, $max_length ) . ( strlen( $title ) > $max_length ? '…' : '' );

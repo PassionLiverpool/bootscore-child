@@ -1,5 +1,5 @@
 <?php
-    $featured_image = get_the_post_thumbnail( $team_member->ID, 'medium' );
+    $featured_image = get_the_post_thumbnail( $team_member->ID, 'medium', false, array('loading'=>'lazy') );
     $name = get_the_title( $team_member->ID );
     $title = get_field('job_title', $team_member->ID );
     $job_description = get_field('job_description', $team_member->ID );

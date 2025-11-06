@@ -43,6 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             alt="<?php echo esc_attr( $image['alt'] ); ?>" 
                             data-full="<?php echo esc_url( $full ); ?>" 
                             class="gallery-image"
+                            loading="lazy"
                         >
                     </li>
                 <?php endforeach; ?>

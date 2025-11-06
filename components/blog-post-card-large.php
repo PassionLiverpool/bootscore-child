@@ -1,6 +1,6 @@
 <?php
     $permalink = get_permalink( $blog_post->ID );
-    $featured_image = get_the_post_thumbnail( $blog_post->ID, 'medium' );
+    $featured_image = get_the_post_thumbnail( $blog_post->ID, 'medium', false, array('loading'=>'lazy') );
     $title = get_the_title( $blog_post->ID );
     $excerpt = get_the_excerpt( $blog_post->ID );
     $truncated_title = wp_trim_words( $title, 15 );

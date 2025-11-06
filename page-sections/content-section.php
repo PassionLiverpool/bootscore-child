@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- Image -->
                 <?php if($media_type == "image"): ?>
                     <div class="content-section__image">
-                        <?php echo wp_get_attachment_image($image['id'], 'medium'); ?>
+                        <?php echo wp_get_attachment_image($image['id'], 'medium', false, array('loading'=>'lazy')); ?>
                     </div>
                 <?php endif; ?>
 

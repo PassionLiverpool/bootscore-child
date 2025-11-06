@@ -10,5 +10,5 @@
     <button type="button"
             class="content-button white-outline-button modal-video-button"
             data-video-id="<?php echo esc_attr($video_id) ?>">Play Video</button>
-    <?php echo wp_get_attachment_image($video_thumbnail['id'], 'medium'); ?>
+    <?php echo wp_get_attachment_image($video_thumbnail['id'], 'medium', false, array('loading' => 'lazy')); ?>
 </div>
