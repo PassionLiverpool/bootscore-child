@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php if( $team_members ): ?>
                 <ul class="team-members">
                 <?php foreach( $team_members as $team_member ): ?>
-                    <?php echo "TEST"; ?>
+                    <?php include get_stylesheet_directory() . '/components/team-member-card.php'; ?>
                 <?php endforeach; ?>
                 </ul>
                 <?php wp_reset_postdata(); ?>
