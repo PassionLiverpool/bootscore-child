@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     // Video Gallery
     $video_gallery = get_sub_field('video_gallery') ?? [];
 
-    $link_to_blog_archive = get_sub_field('link_to_blog_archive') ?? false;
-
     include get_stylesheet_directory() . '/components/content-settings.php';
 ?>
 
@@ -33,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </<?php echo esc_attr( $header_style ); ?>>
             <?php endif; ?>
 
-            <!-- Gallery Images -->
+            <!-- Gallery Videos -->
             <ul class="video-gallery">
                 <?php foreach ( $video_gallery as $video_item ) : 
                     $video_url = $video_item['video'];

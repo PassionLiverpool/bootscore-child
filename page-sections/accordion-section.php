@@ -1,0 +1,75 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+    // Text
+    $header = get_sub_field('header') ?? '';
+    $header_style = get_sub_field('header_style') ?? 'h2';
+
+    // Appearance
+    $section_appearance = get_sub_field('section_appearance');
+    $background_color = $section_appearance['background_colour'];
+    $padding_top = $section_appearance['padding_top'];
+    $padding_bottom = $section_appearance['padding_bottom'];
+
+    // Video Gallery
+    $video_gallery = get_sub_field('video_gallery') ?? [];
+
+    include get_stylesheet_directory() . '/components/content-settings.php';
+?>
+
+<section class="accordion-section background--<?php echo $background_color ?>"
+         <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
+         style="padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
+>
+    <div class="container">
+        <div class="accordion-section__content">
+            <!-- Header -->
+            <?php if ( $header ) : ?>
+                <<?php echo esc_attr( $header_style ); ?> class="accordion-section__header">
+                    <?php echo esc_html( $header ); ?>
+                </<?php echo esc_attr( $header_style ); ?>>
+            <?php endif; ?>
+
+            <!-- Accordion -->
+            <?php
+                if( have_rows('accordion') ):
+                    echo "<div class='accordion'>";
+                    $i = 0; // initialize counter
+                    while( have_rows('accordion') ) : the_row();
+                        $accordion_header = get_sub_field('accordion_header');
+                        $accordion_body = get_sub_field('accordion_body');
+                        $i++; // increment counter
+                        $collapse_id = 'collapse-' . $i;
+                        $heading_id = 'heading-' . $i;
+            ?>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="<?php echo esc_attr( $heading_id ); ?>">
+                        <button class="accordion-button <?php echo $i !== 1 ? 'collapsed' : ''; ?>" 
+                                type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#<?php echo esc_attr( $collapse_id ); ?>" 
+                                aria-expanded="<?php echo $i === 1 ? 'true' : 'false'; ?>" 
+                                aria-controls="<?php echo esc_attr( $collapse_id ); ?>">
+                            <?php echo esc_html( $accordion_header ); ?>
+                        </button>
+                    </h3>
+                    <div id="<?php echo esc_attr( $collapse_id ); ?>" 
+                        class="accordion-collapse collapse <?php echo $i === 1 ? 'show' : ''; ?>" 
+                        aria-labelledby="<?php echo esc_attr( $heading_id ); ?>" 
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <?php echo wp_kses_post( $accordion_body ); ?>
+                        </div>
+                    </div>
+                </div>
+            <?php
+                    // End loop.
+                    endwhile;
+                    echo "</div>";
+                endif;
+            ?>
+
+    </div>
+</section>
