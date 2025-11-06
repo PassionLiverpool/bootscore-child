@@ -28,6 +28,22 @@ function bootscore_child_enqueue_styles() {
 	wp_enqueue_script('modal-video', get_stylesheet_directory_uri() . '/assets/js/modal-video/jquery-modal-video.min.js', array(), '2.4.8', array('strategy' => 'defer', 'in_footer' => true));
 	wp_enqueue_style('modal-video', get_stylesheet_directory_uri() . '/assets/js/modal-video/modal-video.min.css', array(), '2.4.8', 'all');
   
+  // BasicLightbox
+  wp_enqueue_script(
+    'basiclightbox',
+    get_stylesheet_directory_uri() . '/node_modules/basiclightbox/dist/basicLightbox.min.js',
+    array(),
+    '5.0.4',
+    true // load in footer
+  );
+
+  wp_enqueue_style(
+    'basiclightbox',
+    get_stylesheet_directory_uri() . '/node_modules/basiclightbox/dist/basicLightbox.min.css',
+    array(),
+    '5.0.4'
+  );
+
   // custom.js
   // Get modification time. Enqueue file with modification date to prevent browser from loading cached scripts when file content changes. 
   $modificated_CustomJS = date('YmdHi', filemtime(get_stylesheet_directory() . '/assets/js/custom.js'));

@@ -34,14 +34,18 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php endif; ?>
 
             <!-- Gallery Images -->
-            <?php if ( $image_gallery ) : ?>
-                <div class="image-gallery">
-                    <?php foreach ( $image_gallery as $image ) : ?>
-                        <div class="image-gallery__item">
-                            <?php echo wp_get_attachment_image($image['id'], 'medium'); ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
+            <ul class="image-gallery">
+                <?php foreach ( $image_gallery as $image ) : 
+                    $full = wp_get_attachment_image_src($image['id'], 'full')[0]; ?>
+                    <li class="image-gallery__item">
+                        <img 
+                            src="<?php echo esc_url( $image['sizes']['medium'] ); ?>" 
+                            alt="<?php echo esc_attr( $image['alt'] ); ?>" 
+                            data-full="<?php echo esc_url( $full ); ?>" 
+                            class="gallery-image"
+                        >
+                    </li>
+                <?php endforeach; ?>
+            </ul>
     </div>
 </section>
