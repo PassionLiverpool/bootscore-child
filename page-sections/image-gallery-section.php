@@ -38,13 +38,15 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php foreach ( $image_gallery as $image ) : 
                     $full = wp_get_attachment_image_src($image['id'], 'full')[0]; ?>
                     <li class="image-gallery__item">
-                        <img 
-                            src="<?php echo esc_url( $image['sizes']['medium'] ); ?>" 
-                            alt="<?php echo esc_attr( $image['alt'] ); ?>" 
-                            data-full="<?php echo esc_url( $full ); ?>" 
-                            class="gallery-image"
-                            loading="lazy"
-                        >
+                        <a href="#" onclick="return false;">
+                            <img 
+                                src="<?php echo esc_url( $image['sizes']['medium'] ); ?>" 
+                                alt="<?php echo esc_attr( $image['alt'] ); ?>" 
+                                data-full="<?php echo esc_url( $full ); ?>" 
+                                class="gallery-image"
+                                loading="lazy"
+                            >
+                        </a>
                     </li>
                 <?php endforeach; ?>
             </ul>
