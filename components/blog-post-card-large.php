@@ -15,6 +15,22 @@
     <?php endif; ?>
 
     <div class="blog-post__content">
+
+        <!-- Category -->
+        <div class="blog-post__categories">
+            <?php
+            $categories = get_the_category( $blog_post->ID );
+            if ( ! empty( $categories ) ) {
+                foreach ( $categories as $category ) {
+                    $category_link = get_category_link( $category->term_id );
+                    echo '<a href="' . esc_url( $category_link ) . '" class="blog-post__category">'
+                        . esc_html( $category->name ) .
+                        '</a> ';
+                }
+            }
+            ?>
+        </div>
+
         <!-- Title -->
         <h3 class="blog-post__title">
             <?php echo esc_html( $truncated_title ); ?>

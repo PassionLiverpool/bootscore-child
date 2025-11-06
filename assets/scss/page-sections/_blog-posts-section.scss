@@ -101,4 +101,24 @@
             }
         }
     }
+
+    &__categories {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+
+    &__category {
+        margin-right: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        background-color: $grey;
+        text-decoration: none;
+        color: black;
+        transition: filter 0.5s;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
 }
