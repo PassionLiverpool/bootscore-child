@@ -1,0 +1,16 @@
+.hero-banner {
+    padding: 3rem;
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+
+        .btn {
+            margin-right: 1rem;
+
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+    }
+}
