@@ -1,5 +1,15 @@
 .hero-banner {
     padding: 3rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+
+    &.style {
+        &--secondary {
+            min-height: 40rem;
+        }
+    }
 
     &__buttons {
         display: flex;

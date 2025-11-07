@@ -24,8 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ($hide_hero_banner == false): ?>
-    <section class="hero-banner <?php if($background_color): ?> background--<?php echo $background_color ?> <?php endif; ?>"
+    <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_color): ?> background--<?php echo $background_color ?> <?php endif; ?>"
             <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
+            style="background-image: url('<?php echo esc_url( $background_image['url'] ); ?>');"
     >
         <div class="container style--<?php echo $hero_banner_style; ?>">
 
@@ -62,7 +63,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
-
             </div>
-    </section>
+    </header>
 <?php endif; ?>
