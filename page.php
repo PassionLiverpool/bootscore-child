@@ -28,6 +28,10 @@ get_header();
       <main id="main" class="site-main">
 
         <div class="entry-content">
+          <!-- Page banner -->
+          <?php include get_stylesheet_directory() . '/components/hero-banner.php'; ?>
+
+          <!-- Flexible page sections -->
           <?php
           // Render ACF flexible page sections for this page (safe, non-recursive)
           if ( function_exists( 'render_theme_page_sections' ) ) {
