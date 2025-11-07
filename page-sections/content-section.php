@@ -34,7 +34,9 @@ if ( ! defined( 'ABSPATH' ) ) {
          style="padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
 >
     <div class="container style--<?php echo $content_section_style; ?>">
-        <div class="content-section__content">
+
+        <!-- Text content -->
+        <div class="content-section__text">
             <!-- Header -->
             <?php if ( $header ) : ?>
                 <<?php echo esc_attr( $header_style ); ?> class="content-section__header">
