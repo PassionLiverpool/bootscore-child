@@ -40,14 +40,14 @@
     .style{
         &--form-bottom {
             flex-direction: column;
-            .form-section__content {
+            .form-section__text {
                 text-align: center;
             }
         }
 
         &--form-top {
             flex-direction: column-reverse;
-            .form-section__content {
+            .form-section__text {
                 text-align: center;
             }
         }
@@ -55,11 +55,29 @@
         &--form-right {
             flex-direction: row;
             align-items: flex-start;
+            .form-section__text {
+                text-align: center;
+            }
+
+            @include responsive('md'){
+                .form-section__text {
+                    text-align: left;
+                }
+            }
         }
 
         &--form-left {
             flex-direction: row-reverse;
             align-items: flex-start;
+            .form-section__text {
+                text-align: center;
+            }
+            
+            @include responsive('md'){
+                .form-section__text {
+                    text-align: left;
+                }
+            }
         }
     }
 }
