@@ -5,6 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     // Text
     $hero_banner_text = get_sub_field('hero_banner_text');
     $header = get_field('header') ?? '';
+    // If we are on a category archive, override with the category name
+    if (is_category()) {
+        $header = single_cat_title('', false);
+    }
+
     $header_style = get_field('header_style') ?? 'h2';
     $wysiwyg_text = get_field('wysiwyg_text') ?? '';
 
@@ -14,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Appearance
     $hero_banner_style = get_field('hero_banner_style') ?? 'media-bottom';
-    $font_colour = get_field('hero_banner_font_colour') ?? 'white';
-    $background_colour = get_field('hero_banner_background_colour');
+    $font_colour = get_field('hero_banner_font_colour') ?? 'black';
+    $background_colour = get_field('hero_banner_background_colour') ?? 'white';
     $background_image = get_field('hero_banner_background_image');
     $banner_video = get_field('hero_banner_video');
     $banner_poster_image = get_field('hero_banner_poster_image');
