@@ -57,10 +57,13 @@
 @import "bootscore-woocommerce"; // Comment or delete this line if WooCommerce styles are not needed
 @import "bootscore-custom";
 
+@import "templates/blog";
+
 @import "components/buttons";
 @import "components/video";
 @import "components/hero-banners";
 @import "components/social-media";
+@import "components/pagination";
 
 @import "page-sections/content-section";
 @import "page-sections/blog-posts-section";

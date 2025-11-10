@@ -27,28 +27,40 @@ get_header();
           <?php include get_stylesheet_directory() . '/components/hero-banner.php'; ?>
 
           <!-- Blog Posts -->
-          <div class="container">
-            <ul class="blog-posts blog-posts--small">
+          <div class="blog-archive">
+            <div class="container">
+              <ul class="blog-posts blog-posts--small">
+                  <?php
+                  // Set up pagination
+                  $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+
+                  // Custom query for posts
+                  $args = [
+                      'post_type'      => 'post',
+                      'post_status'    => 'publish',
+                      'paged'          => $paged,
+                      'posts_per_page' => 12,
+                  ];
+
+                  $blog_query = new WP_Query($args);
+
+                  if ($blog_query->have_posts()) :
+                      while ($blog_query->have_posts()) : $blog_query->the_post();
+                          $blog_post = get_post();
+                          include get_stylesheet_directory() . '/components/blog-post-card-small.php';
+                      endwhile;
+
+                  else :
+                      echo '<p>' . esc_html__('No posts found.', 'bootscore') . '</p>';
+                  endif;
+
+                  // Reset post data
+                  wp_reset_postdata();
+                  ?>
+              </ul>
+
+              <div class="pagination">
                 <?php
-                // Set up pagination
-                $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
-
-                // Custom query for posts
-                $args = [
-                    'post_type'      => 'post',
-                    'post_status'    => 'publish',
-                    'paged'          => $paged,
-                    'posts_per_page' => 10, // adjust as needed
-                ];
-
-                $blog_query = new WP_Query($args);
-
-                if ($blog_query->have_posts()) :
-                    while ($blog_query->have_posts()) : $blog_query->the_post();
-                        $blog_post = get_post();
-                        include get_stylesheet_directory() . '/components/blog-post-card-small.php';
-                    endwhile;
-
                     // Pagination
                     $big = 999999999; // need an unlikely integer
                     echo paginate_links([
@@ -59,16 +71,11 @@ get_header();
                         'prev_text' => __('« Previous'),
                         'next_text' => __('Next »'),
                     ]);
-
-                else :
-                    echo '<p>' . esc_html__('No posts found.', 'bootscore') . '</p>';
-                endif;
-
-                // Reset post data
-                wp_reset_postdata();
                 ?>
-            </ul>
-          </div>
+              </div> <!-- end pagination -->
+
+            </div> <!-- end container -->
+          </div> <!-- end blog-posts-archive -->
         </div>
         
         <?php do_action( 'bootscore_before_entry_footer', 'page' ); ?>
