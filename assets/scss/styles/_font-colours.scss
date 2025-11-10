@@ -1,0 +1,14 @@
+.font {
+    &--white {
+        color: white;
+    }
+    &--black {
+        color: black;
+    }
+    &--grey {
+        color: $grey;
+    }
+    &--light-grey {
+        color: $light-grey;
+    }
+}

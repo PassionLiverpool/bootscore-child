@@ -14,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Appearance
     $hero_banner_style = get_field('hero_banner_style') ?? 'media-bottom';
-    $background_color = get_field('hero_banner_background_colour');
+    $font_colour = get_field('hero_banner_font_colour') ?? 'white';
+    $background_colour = get_field('hero_banner_background_colour');
     $background_image = get_field('hero_banner_background_image');
     $banner_video = get_field('hero_banner_video');
 
@@ -24,14 +25,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ($hide_hero_banner == false): ?>
-    <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_color): ?> background--<?php echo $background_color ?> <?php endif; ?>"
+    <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_colour && $hero_banner_style=='primary'): ?>background--<?php echo $background_colour ?><?php endif; ?>"
             <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
-            style="background-image: url('<?php echo esc_url( $background_image['url'] ); ?>');"
+            <?php if($background_image && $hero_banner_style=='secondary'): ?>style="background-image: url('<?php echo esc_url( $background_image['url'] ); ?>');"<?php endif; ?>
     >
         <div class="container style--<?php echo $hero_banner_style; ?>">
 
             <!-- Text content -->
-            <div class="hero-banner__text">
+            <div class="hero-banner__text font--<?php echo $font_colour; ?>">
                 <!-- Header -->
                 <?php if ( $header ) : ?>
                     <<?php echo esc_attr( $header_style ); ?> class="hero-banner__header">
@@ -64,5 +65,17 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
                 <?php endif; ?>
             </div>
+        </div>
+
+        <!-- Video -->
+        <?php if ( $banner_video && $hero_banner_style == 'tertiary' ) : ?>
+            <div class="hero-banner__video">
+                <?php 
+                    $video = $banner_video; ?>
+                <video autoplay muted loop playsinline poster="preview.jpg">
+                    <source src="<?php echo $video ?>" type="video/mp4">
+                </video>
+            </div>
+        <?php endif; ?>
     </header>
 <?php endif; ?>
