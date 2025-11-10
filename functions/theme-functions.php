@@ -62,7 +62,7 @@ function custom_image_sizes() {
     add_image_size( 'small-icon', 50, 50 ); 
     add_image_size( 'large-icon', 150, 150 ); 
     add_image_size( 'small-post-thumbnail', 300, 200, true );
-    add_image_size( 'large-post-thumbnail', 400, 400, true ); 
+    add_image_size( 'large-post-thumbnail', 400, 300, true ); 
 }
 add_action( 'after_setup_theme', 'custom_image_sizes' );
 

@@ -1,0 +1,18 @@
+.social-media {
+    display: flex;
+    flex-direction: row;
+
+    a {
+        margin-right: 0.5rem;
+        color: inherit;
+
+        &:last-of-type {
+            margin: 0;
+        }
+
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}
