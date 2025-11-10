@@ -101,7 +101,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                 // Optional: reset post data after your loop
                 wp_reset_postdata();
             ?>
-
             
             <!--  Blog Posts -->
             <?php if( $blog_posts ): ?>
