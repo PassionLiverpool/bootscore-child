@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $background_colour = get_field('hero_banner_background_colour');
     $background_image = get_field('hero_banner_background_image');
     $banner_video = get_field('hero_banner_video');
+    $banner_poster_image = get_field('hero_banner_poster_image');
 
     // Settings
     $hide_hero_banner = get_field('hide_hero_banner') ?? false;
@@ -72,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="hero-banner__video">
                 <?php 
                     $video = $banner_video; ?>
-                <video autoplay muted loop playsinline poster="preview.jpg">
+                <video autoplay muted loop playsinline poster="<?php echo esc_url( $banner_poster_image['url'] ); ?>">
                     <source src="<?php echo $video ?>" type="video/mp4">
                 </video>
             </div>
