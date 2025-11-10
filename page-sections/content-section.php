@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         
         <!-- Media -->
-        <?php if($image || $video): ?>
+        <?php if($image || $content_video): ?>
             <div class="content-section__media">
                 <!-- Image -->
                 <?php if($media_type == "image"): ?>
