@@ -23,14 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="image-gallery-section__content">
             <!-- Header -->
             <?php if ( $header ) : ?>
-                <<?php echo esc_attr( $header_style ); ?> class="image-gallery-section__header">
+                <<?php echo esc_attr( $header_style ); ?> class="image-gallery-section__header font--<?php echo esc_attr($font_colour) ?>">
                     <?php echo esc_html( $header ); ?>
                 </<?php echo esc_attr( $header_style ); ?>>
             <?php endif; ?>
 
             <!-- WYSIWYG -->
             <?php if ( $wysiwyg_text ) : ?>
-                <div class="image-gallery-section__wysiwyg">
+                <div class="image-gallery-section__wysiwyg font--<?php echo esc_attr($font_colour) ?>">
                     <?php echo wp_kses_post( $wysiwyg_text ); ?>
                 </div>
             <?php endif; ?>
