@@ -43,7 +43,7 @@ get_header();
             
             <?php do_action( 'bootscore_after_featured_image', 'single' ); ?>
 
-            <div class="entry-content">
+            <div class="post-content">
               <?php the_content(); ?>
             </div>
             
