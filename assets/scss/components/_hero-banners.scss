@@ -21,6 +21,12 @@
     &.style {
         &--secondary {
             min-height: 40rem;
+
+            .hero-banner__text{
+                width: max-content;
+                background: rgba(39, 24, 24, 0.5);
+                padding: 3rem;
+            }
         }
 
         &--tertiary {
