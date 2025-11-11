@@ -7,9 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $header_style = get_sub_field('header_style') ?? 'h2';
 
     // Appearance
-    $background_color = $section_appearance['background_colour'];
-    $padding_top = $section_appearance['padding_top'];
-    $padding_bottom = $section_appearance['padding_bottom'];
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
     // Team Members
     $testimonials = get_sub_field('testimonials');
@@ -26,10 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
         ]);
     }
 
-    include get_stylesheet_directory() . '/components/content-settings.php';
+    // Settings
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="testimonials-section background--<?php echo $background_color ?>"
+<section class="testimonials-section background--<?php echo $background_colur ?>"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
          style="padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
 >

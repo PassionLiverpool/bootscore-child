@@ -17,7 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     $link_to_blog_archive = get_sub_field('link_to_blog_archive') ?? false;
 
-    include get_stylesheet_directory() . '/components/content-settings.php';
+    // Settings
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
 <section class="image-gallery-section background--<?php echo $background_color ?>"

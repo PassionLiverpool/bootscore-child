@@ -8,19 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) {
     $wysiwyg_text = get_sub_field('wysiwyg_text') ?? '';
 
     // Appearance
-    $section_appearance = get_sub_field('section_appearance');
-    $background_color = $section_appearance['background_colour'];
-    $padding_top = $section_appearance['padding_top'];
-    $padding_bottom = $section_appearance['padding_bottom'];
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
     // Form Shortcode
     $form_section_style = get_sub_field('form_section_style') ?? 'form-right';
     $form_shortcode = get_sub_field('form_shortcode') ?? [];
 
-    include get_stylesheet_directory() . '/components/content-settings.php';
+    // Settings
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="form-section background--<?php echo $background_color ?>"
+<section class="form-section background--<?php echo $background_colour ?>"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
          style="padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
 >

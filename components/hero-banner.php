@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Settings
     $hide_hero_banner = get_field('hide_hero_banner') ?? false;
-    include get_stylesheet_directory() . '/components/content-settings.php';
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
 <?php if ($hide_hero_banner == false): ?>

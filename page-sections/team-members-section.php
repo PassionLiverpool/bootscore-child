@@ -8,10 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Appearance
     $blog_posts_style = get_sub_field('blog_posts_style') ?? 'small';
-    $section_appearance = get_sub_field('section_appearance');
-    $background_color = $section_appearance['background_colour'];
-    $padding_top = $section_appearance['padding_top'];
-    $padding_bottom = $section_appearance['padding_bottom'];
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
     // Team Members
     $team_members = get_sub_field('team_members');
@@ -28,10 +25,11 @@ if ( ! defined( 'ABSPATH' ) ) {
         ]);
     }
 
-    include get_stylesheet_directory() . '/components/content-settings.php';
+    // Settings
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="team-members-section background--<?php echo $background_color ?>"
+<section class="team-members-section background--<?php echo $background_colour ?>"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
          style="padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
 >
