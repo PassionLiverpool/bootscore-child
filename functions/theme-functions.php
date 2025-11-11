@@ -79,3 +79,9 @@ function mytheme_custom_sizes_dropdown( $sizes ) {
     ) );
 }
 add_filter( 'image_size_names_choose', 'mytheme_custom_sizes_dropdown' );
+
+// Show dashicons to non-logged-in users
+function load_dashicons_front_end() {
+    wp_enqueue_style( 'dashicons' );
+}
+add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
