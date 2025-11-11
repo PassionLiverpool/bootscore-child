@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         $header = single_cat_title('', false);
     }
 
-    $header_style = get_field('header_style') ?? 'h2';
+    $header_style = get_field('header_style') ?? 'h1';
     $wysiwyg_text = get_field('wysiwyg_text') ?? '';
 
     // Buttons

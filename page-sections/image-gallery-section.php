@@ -2,20 +2,14 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-    // Text
-    $header = get_sub_field('header') ?? '';
-    $header_style = get_sub_field('header_style') ?? 'h2';
+    // Header & Body Text
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-header.php';
 
     // Appearance
-    $section_appearance = get_sub_field('section_appearance');
-    $background_color = $section_appearance['background_colour'];
-    $padding_top = $section_appearance['padding_top'];
-    $padding_bottom = $section_appearance['padding_bottom'];
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
     // Image Gallery
     $image_gallery = get_sub_field('image_gallery') ?? [];
-
-    $link_to_blog_archive = get_sub_field('link_to_blog_archive') ?? false;
 
     // Settings
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';

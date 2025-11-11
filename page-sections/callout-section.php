@@ -4,9 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
     $content = get_sub_field('section_content');
 
-    // Text
-    $header = $content['header'] ?? '';
-    $header_style = $content['header_style'] ?? 'h2';
+    // Header & Body Text
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-header.php';
     $wysiwyg_text = $content['wysiwyg_text'];
 
     // Media

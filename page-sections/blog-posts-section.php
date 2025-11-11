@@ -2,9 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-    // Text
-    $header = get_sub_field('header') ?? '';
-    $header_style = get_sub_field('header_style') ?? 'h2';
+    // Header & Body Text
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-header.php';
 
     // Appearance
     $blog_posts_style = get_sub_field('blog_posts_style') ?? 'small';
