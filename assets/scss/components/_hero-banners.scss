@@ -9,6 +9,13 @@
 
     .container {
         z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include responsive('md') {
+            justify-content: flex-start;
+        }
     }
 
     &.style {
