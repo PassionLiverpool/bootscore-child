@@ -28,6 +28,7 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 }, 20 );
 
+// Add labels to flexible content layouts
 add_filter( 'acf/fields/flexible_content/layout_title', function( $title, $field, $layout, $i ) {
 
     $settings = get_sub_field( 'section_settings' );
