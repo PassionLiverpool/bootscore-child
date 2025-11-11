@@ -4,17 +4,31 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-
 /**
  * @package Bootscore Child
  *
- * CMS Functions
+ * Style Functions
  * 
  * @version 6.0.0
  */
 
-// Disable both Gutenberg and the Classic editor for pages.
-function mytheme_enqueue_dashicons() {
-    wp_enqueue_style('dashicons');
-}
-add_action('wp_enqueue_scripts', 'mytheme_enqueue_dashicons');
+
+/**
+ * Output ACF site options scripts in the header
+ */
+add_action('wp_head', function() {
+    $header_scripts = get_field('header_scripts', 'option'); // 'option' for site options page
+    if ( $header_scripts ) {
+        echo wp_kses_post($header_scripts); // allows safe HTML/JS output
+    }
+});
+
+/**
+ * Output ACF site options scripts in the footer
+ */
+add_action('wp_footer', function() {
+    $footer_scripts = get_field('footer_scripts', 'option');
+    if ( $footer_scripts ) {
+        echo wp_kses_post($footer_scripts);
+    }
+});

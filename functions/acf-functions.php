@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * @package Bootscore Child
  *
- * CMS Functions
+ * ACF Functions
  * 
  * @version 6.0.0
  */

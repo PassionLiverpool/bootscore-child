@@ -55,6 +55,7 @@ add_action( 'init', function() {
 });
 
 require_once get_stylesheet_directory() . '/functions/style-functions.php';
+require_once get_stylesheet_directory() . '/functions/script-functions.php';
 require_once get_stylesheet_directory() . '/functions/acf-functions.php';
 require_once get_stylesheet_directory() . '/functions/theme-functions.php';
 require_once get_stylesheet_directory() . '/functions/shortcode-functions.php';

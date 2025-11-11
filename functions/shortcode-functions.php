@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * @package Bootscore Child
  *
- * Template Functions
+ * Shortcode Functions
  * 
  * @version 6.0.0
  */
