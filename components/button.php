@@ -1,4 +1,5 @@
 <?php
+$show_icon = $button['show_icon'] ?? false;
 $button_link = $button['button_link'] ?? null;
 $button_icon = $button['button_icon'] ?? null;
 
@@ -13,7 +14,7 @@ if ($button_link) :
 
         <?php
         // --- ICON ---
-        if ( $button_icon ) {
+        if ( $show_icon == true && $button_icon ) {
             if ( str_starts_with( $button_icon, 'dashicons-' ) ) {
                 echo '<span class="btn__icon dashicons ' . esc_attr( $button_icon ) . '"></span>';
             }
