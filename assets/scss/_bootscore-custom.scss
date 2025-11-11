@@ -11,6 +11,10 @@
     max-width: 1280px; /* override Bootstrap default */
 }
 
+.site-header {
+    z-index: 99;
+}
+
 /* Accessibility */
 .screen-reader-text, .hidden {
     position: absolute;
