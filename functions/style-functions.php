@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Output ACF site options scripts in the header
  */
 add_action('wp_head', function() {
-    $header_scripts = get_field('header_scripts', 'option'); // 'option' for site options page
+    $header_scripts = get_field('header_scripts', 'option');
     if ( $header_scripts ) {
-        echo wp_kses_post($header_scripts); // allows safe HTML/JS output
+        echo $header_scripts; // allows safe HTML/JS output
     }
 });
 
@@ -29,6 +29,6 @@ add_action('wp_head', function() {
 add_action('wp_footer', function() {
     $footer_scripts = get_field('footer_scripts', 'option');
     if ( $footer_scripts ) {
-        echo wp_kses_post($footer_scripts);
+        echo $footer_scripts;
     }
 });
