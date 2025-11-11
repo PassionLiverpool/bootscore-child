@@ -3,7 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
     // Header & Body Text
-    include get_stylesheet_directory() . '/page-sections/section-fields/section-header.php';
+    $header = get_sub_field('header');
+    $header_style = get_sub_field('header_style') ?? 'h2';
 
     // Appearance
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
