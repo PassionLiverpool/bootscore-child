@@ -54,8 +54,9 @@ add_action( 'init', function() {
     ini_set( 'default_charset', 'UTF-8' );
 });
 
+require_once get_stylesheet_directory() . '/functions/acf-functions.php';
+require_once get_stylesheet_directory() . '/functions/post-functions.php';
 require_once get_stylesheet_directory() . '/functions/style-functions.php';
 require_once get_stylesheet_directory() . '/functions/script-functions.php';
-require_once get_stylesheet_directory() . '/functions/acf-functions.php';
-require_once get_stylesheet_directory() . '/functions/theme-functions.php';
 require_once get_stylesheet_directory() . '/functions/shortcode-functions.php';
+require_once get_stylesheet_directory() . '/functions/theme-functions.php';
