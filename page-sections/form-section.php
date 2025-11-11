@@ -3,9 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
     // Header & Body Text
-    $header = get_sub_field('header');
-    $header_style = get_sub_field('header_style') ?? 'h2';
-    $wysiwyg_text = get_sub_field('wysiwyg_text') ?? '';
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
 
     // Appearance
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
@@ -33,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <!-- WYSIWYG -->
             <?php if ( $wysiwyg_text ) : ?>
-                <div class="content-section__wysiwyg">
+                <div class="form-section__wysiwyg">
                     <?php echo wp_kses_post( $wysiwyg_text ); ?>
                 </div>
             <?php endif; ?>

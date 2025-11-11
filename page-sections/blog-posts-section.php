@@ -3,9 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
     // Header & Body Text
-    $header = get_sub_field('header');
-    $header_style = get_sub_field('header_style') ?? 'h2';
-    
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
+
     // Appearance
     $blog_posts_style = get_sub_field('blog_posts_style') ?? 'small';
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
@@ -33,6 +32,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <<?php echo esc_attr( $header_style ); ?> class="blog-posts-section__header">
                     <?php echo esc_html( $header ); ?>
                 </<?php echo esc_attr( $header_style ); ?>>
+            <?php endif; ?>
+
+            <!-- WYSIWYG -->
+            <?php if ( $wysiwyg_text ) : ?>
+                <div class="blog-posts-section__wysiwyg">
+                    <?php echo wp_kses_post( $wysiwyg_text ); ?>
+                </div>
             <?php endif; ?>
 
             <!-- Query -->

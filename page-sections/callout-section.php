@@ -2,12 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-    $content = get_sub_field('section_content');
-
     // Header & Body Text
-    $header = $content['header'];
-    $header_style = $content['header_style'];
-    $wysiwyg_text = $content['wysiwyg_text'];
+    include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
 
     // Media
     $media_type = $content['media_type'] ?? 'none';
