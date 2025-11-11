@@ -1,9 +1,12 @@
-.blog-posts {
-    padding: 0;
+.blog-posts-section {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
+}
+
+.blog-posts {
+    padding: 0;
+
     &--small {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
