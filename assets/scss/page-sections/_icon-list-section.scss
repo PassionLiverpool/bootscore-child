@@ -3,6 +3,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     @include responsive('md'){
         grid-template-columns: repeat(4, 1fr);

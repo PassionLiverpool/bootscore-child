@@ -3,11 +3,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     &__item {
         list-style-type: none;
         transition: filter 0.3s ease;
-        
+
         &:hover {
             filter: brightness(0.8);
         }
