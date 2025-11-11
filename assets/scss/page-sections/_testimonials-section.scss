@@ -11,6 +11,10 @@
     gap: 1rem;
 
     @include responsive('md'){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive('lg'){
         grid-template-columns: repeat(3, 1fr);
     }
 }
