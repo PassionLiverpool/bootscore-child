@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     $content_video_thumbnail = $content['video_thumbnail'] ?? '';
 
     // Buttons
-    $primary_button = $content['primary_button'];
-    $secondary_button = $content['secondary_button'];
+    $primary_button = $content['content_section_primary_button_button'];
+    $secondary_button = $content['content_section_secondary_button_button'];
 
     // Appearance
     $callout_section_style = get_sub_field('callout_section_style') ?? 'media-bottom';
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/components/content-settings.php';
 ?>
 
-<section class="callout-section "
+<section class="callout-section"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
          style="padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
 >
