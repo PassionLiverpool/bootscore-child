@@ -25,6 +25,12 @@
         font-size: 5rem;
     }
 
+    &__text {
+        width: max-content;
+        background: rgba(0,0,0,0.5);
+        padding: 3rem;
+    }
+
     &__video {
         position: absolute;
         top: 0;
