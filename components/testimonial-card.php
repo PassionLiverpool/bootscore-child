@@ -14,22 +14,24 @@
     <?php endif; ?>
 
     <div class="testimonial__text">
-        <!-- Team Member name -->
-        <h3 class="testimonial__name">
-            <?php echo esc_html( $name ); ?>
-        </h3>
-
-        <!-- Job Title -->
-        <?php if ($subheading) : ?>
-            <h4 class="testimonial__title">
-                <?php echo esc_html($subheading); ?>
-            </h4>
-        <?php endif; ?>
-
         <!-- Testimonial -->
         <?php if ($testimonial) : ?>
             <p class="testimonial__testimonial">
                 <?php echo esc_html( $testimonial ); ?>
+            </p>
+        <?php endif; ?>
+
+        <!-- Testimonial name -->
+        <?php if ($name) : ?>
+            <p class="testimonial__name">
+                <?php echo esc_html( $name ); ?>
+            </p>
+        <?php endif; ?>
+
+        <!-- Testimonial Subheading -->
+        <?php if ($subheading) : ?>
+            <p class="testimonial__subheading">
+                <?php echo esc_html($subheading); ?>
             </p>
         <?php endif; ?>
     </div>
