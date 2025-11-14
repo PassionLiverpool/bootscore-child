@@ -1,0 +1,27 @@
+/* Set a fixed height for all carousel items. 
+    You can adjust '500px' to your desired standard height.
+*/
+.carousel-inner .carousel-item {
+    height: 40rem; 
+    /* The item must be position: relative for the caption to work correctly */
+    position: relative; 
+}
+
+/* Ensure the image fills the entire height and width of the carousel item.
+*/
+.carousel-inner .carousel-item img {
+    height: 100%;
+    width: 100%;
+    
+    /* The key property: scales the image to cover the container 
+        while preserving its aspect ratio (will crop if necessary).
+    */
+    object-fit: cover;
+}
+
+/* Ensure the controls look correct against the new height */
+.carousel-control-prev,
+.carousel-control-next {
+    height: 100%;
+    width: auto;
+}
