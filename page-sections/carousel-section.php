@@ -28,8 +28,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     // Total number of slides
     $total_slides = count( $carousel_images );
     
-    // Determine the data-bs-ride attribute
-    $data_ride = $autoplay ? 'carousel' : '';
+    // FIX: Only output data-bs-ride attribute if $autoplay is true. 
+    // This allows manual controls to work when autoplay is disabled.
+    $data_ride_attr = $autoplay ? ' data-bs-ride="carousel"' : '';
+
+    // Explicitly set interval to false if not autoplaying 
+    $data_interval_attr = $autoplay ? '' : ' data-bs-interval="false"';
 ?>
 
 <section class="carousel-section background--<?php echo esc_attr($background_colour); ?>"
@@ -58,8 +62,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             <!-- Carousel -->
             <div id="carouselExampleIndicators" 
                  class="carousel slide" 
-                 data-bs-ride="<?php echo $data_ride; ?>" 
-                 <?php if ( ! $autoplay ): ?>data-bs-interval="false"<?php endif; // Prevent automatic cycle if autoplay is false ?>
+                <?php echo $data_ride_attr; // Only set this if autoplay is true ?>
+                <?php echo $data_interval_attr; // Explicitly set interval to false if not autoplaying ?>
             >
 
                 <!-- 1. CAROUSEL INDICATORS (Conditional) -->
