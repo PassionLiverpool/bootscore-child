@@ -356,8 +356,8 @@
                         },
                         {
                             "key": "field_69174f0aab544",
-                            "label": "Content Section Style",
-                            "name": "content_section_style",
+                            "label": "Carousel Section Style",
+                            "name": "carousel_section_style",
                             "aria-label": "",
                             "type": "select",
                             "instructions": "",
@@ -2347,5 +2347,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763135692
+    "modified": 1763136927
 }

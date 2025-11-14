@@ -1,21 +1,15 @@
-/* Set a fixed height for all carousel items. 
-    You can adjust '500px' to your desired standard height.
-*/
 .carousel-inner .carousel-item {
-    height: 40rem; 
-    /* The item must be position: relative for the caption to work correctly */
+    height: 20rem; 
     position: relative; 
+
+    @include responsive('md') {
+        height: 40rem; 
+    }
 }
 
-/* Ensure the image fills the entire height and width of the carousel item.
-*/
 .carousel-inner .carousel-item img {
     height: 100%;
     width: 100%;
-    
-    /* The key property: scales the image to cover the container 
-        while preserving its aspect ratio (will crop if necessary).
-    */
     object-fit: cover;
 }
 
@@ -24,4 +18,85 @@
 .carousel-control-next {
     height: 100%;
     width: auto;
+}
+
+.carousel-section {
+    .container {
+        display: flex;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .style{
+        &--carousel-bottom {
+            flex-direction: column;
+            flex: 1;
+
+            .carousel-section__text {
+                padding-bottom: 1rem;
+            }
+        }
+
+        &--carousel-top {
+            flex-direction: column-reverse;
+            flex: 1;
+
+            .carousel-section__text {
+                padding-top: 1rem;
+            }
+        }
+        
+        &--carousel-right {
+            flex-direction: column;
+            flex: 1;
+
+            .carousel-section__text {
+                padding: 0;
+
+                @include responsive('md') {
+                    padding-right: 2rem;
+                }
+            }
+
+            @include responsive('md') {
+                flex-direction: row;
+
+                .carousel-section__text {
+                    flex-basis: 30%;
+                }
+
+                .carousel {
+                    flex-basis: 70%;
+                }
+            }
+        }
+
+        &--carousel-left {
+            flex-direction: column;
+            flex: 1;
+
+            .carousel-section__text {
+                padding: 0;
+
+                @include responsive('md') {
+                    padding-left: 2rem;
+                }
+            }
+
+            @include responsive('md') {
+                flex-direction: row-reverse;
+
+                .carousel-section__text {
+                    flex-basis: 30%;
+                }
+
+                .carousel {
+                    flex-basis: 70%;
+                }
+            }
+        }
+    }
 }

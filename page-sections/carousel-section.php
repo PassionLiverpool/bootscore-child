@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
 
     // Appearance
+    $carousel_section_style = get_sub_field('carousel_section_style') ?? 'carousel-bottom';
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
     // Carousel
@@ -36,20 +37,23 @@ if ( ! defined( 'ABSPATH' ) ) {
          style="<?php if($background_image):?>background-image: url('<?php echo esc_url($background_image['url']); ?>'); <?endif;?>padding-top: <?php echo esc_attr($padding_top); ?>rem; padding-bottom: <?php echo esc_attr($padding_bottom); ?>rem"
 >
     <div class="container">
-        <div class="carousel-section__content">
-            <!-- Header -->
-            <?php if ( $header ) : ?>
-                <<?php echo esc_attr( $header_style ); ?> class="carousel-section__header font--<?php echo esc_attr($font_colour) ?>">
-                    <?php echo esc_html( $header ); ?>
-                </<?php echo esc_attr( $header_style ); ?>>
-            <?php endif; ?>
+        <div class="carousel-section__content style--<?php echo $carousel_section_style; ?>">
 
-            <!-- WYSIWYG -->
-            <?php if ( $wysiwyg_text ) : ?>
-                <div class="carousel-section__wysiwyg font--<?php echo esc_attr($font_colour) ?>">
-                    <?php echo wp_kses_post( $wysiwyg_text ); ?>
-                </div>
-            <?php endif; ?>
+            <div class="carousel-section__text">
+                <!-- Header -->
+                <?php if ( $header ) : ?>
+                    <<?php echo esc_attr( $header_style ); ?> class="carousel-section__header font--<?php echo esc_attr($font_colour) ?>">
+                        <?php echo esc_html( $header ); ?>
+                    </<?php echo esc_attr( $header_style ); ?>>
+                <?php endif; ?>
+
+                <!-- WYSIWYG -->
+                <?php if ( $wysiwyg_text ) : ?>
+                    <div class="carousel-section__wysiwyg font--<?php echo esc_attr($font_colour) ?>">
+                        <?php echo wp_kses_post( $wysiwyg_text ); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
 
             <!-- Carousel -->
             <div id="carouselExampleIndicators" 
