@@ -1,0 +1,61 @@
+.logo-parade-section {
+    padding: 0;
+    // 1. Add relative positioning for potential child elements (optional, but good practice)
+    position: relative; 
+}
+
+// 2. The new wrapper to hide overflowing content and contain the scrolling element
+.logo-parade-section__logos {
+    overflow: hidden;
+    white-space: nowrap; // Keeps logos on a single line
+    mask-image: linear-gradient(to right, 
+        hsl(0 0% 0% / 0) 0%, 
+        hsl(0 0% 0% / 1) 5%, 
+        hsl(0 0% 0% / 1) 95%, 
+        hsl(0 0% 0% / 0) 100%); // Optional: Fading edges for a smoother effect
+}
+
+.logo-parade {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 1rem 0;
+
+    // 4. Important: Set width to max-content to ensure it contains ALL logos (original + duplicate)
+    width: max-content; 
+
+    // 5. Apply the animation
+    animation: scroll-left 10s linear infinite; // Adjust 40s for speed
+
+    // Optional: Stop scrolling on hover
+    &:hover {
+        animation-play-state: paused;
+    }
+
+    &__logo {
+        list-style-type: none;
+        // 6. Ensure the list item doesn't shrink
+        flex-shrink: 0; 
+
+        img {
+            height: 5rem;
+            max-width: 10rem;
+            object-fit: contain;
+        }
+    }
+}
+
+// 7. Define the infinite scrolling keyframes
+@keyframes scroll-left {
+    from {
+        // Start at original position
+        transform: translateX(0%);
+    }
+    to {
+        // Move left by 50% of the total width (the width of the first set of logos)
+        transform: translateX(-50%);
+    }
+}
