@@ -12,10 +12,12 @@ Start developing your new WordPress project right away in a upgrade-safe way usi
 3. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
 4. Click Activate to use your new theme right away.
 
-## Minifying CSS
-1. First, make sure you have node and npm installed.
+## Running Gulp
+1. We're using Gulp to watch and minify CSS & JS files.
+    * All styling changes should be made in the scss files. Bootscore automatically compiles the scss into `main.css`
+    * All custom javascript should be made in `custom.js`
+2. First, make sure you have node and npm installed.
     * If you are on a mac you can install it using homebrew (https://formulae.brew.sh/formula/node)
     * You can also install it directly from npm (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-
-2. All styling changes should be made in the scss files. Bootscore automatically compiles the scss into `main.css`
-3. While developing, run `npm run watch-css` to minify CSS. This will compile the main.css file in `assets/css` to `main.min.css`
+3. Run `npm install`
+4. While developing, run `npm run watch`. This will compile the main.css file in `assets/css` to `main.min.css`, and the `custom.js` file into `custom.min.js`
