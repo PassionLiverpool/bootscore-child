@@ -45,7 +45,15 @@
     }
 
     &__header {
-        font-size: 5rem;
+        font-size: 3rem;
+
+        @include responsive('md') {
+            font-size: 4rem;
+        }
+
+        @include responsive('lg') {
+            font-size: 5rem;
+        }
     }
 
     &__video {
