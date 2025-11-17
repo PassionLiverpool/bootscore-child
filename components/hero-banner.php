@@ -33,8 +33,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ($hide_hero_banner == false): ?>
     <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_colour && $hero_banner_style=='primary'): ?>background--<?php echo $background_colour ?><?php endif; ?>"
             <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
-            <?php if($background_image && $hero_banner_style=='secondary'): ?>style="background-image: url('<?php echo esc_url( $background_image['url'] ); ?>');"<?php endif; ?>
     >
+        <?php if($background_image && $hero_banner_style=='secondary'): ?>
+            <img 
+                src="<?php echo esc_url($background_image['url']); ?>" 
+                alt="" 
+                fetchpriority="high"
+                class="hero-banner__bg-image"
+            >
+        <?php endif; ?>
         <div class="container style--<?php echo $hero_banner_style; ?>">
 
             <!-- Text content -->
