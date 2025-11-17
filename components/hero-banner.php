@@ -44,40 +44,42 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php endif; ?>
         <div class="container style--<?php echo $hero_banner_style; ?>">
 
-            <!-- Text content -->
-            <div class="hero-banner__text font--<?php echo $font_colour; ?>">
-                <!-- Header -->
-                <?php if ( $header ) : ?>
-                    <<?php echo esc_attr( $header_style ); ?> class="hero-banner__header">
-                        <?php echo esc_html( $header ); ?>
-                    </<?php echo esc_attr( $header_style ); ?>>
-                <?php endif; ?>
+            <?php if ($header || $wysiwyg_text): ?>
+                <!-- Text content -->
+                <div class="hero-banner__text font--<?php echo $font_colour; ?>">
+                    <!-- Header -->
+                    <?php if ( $header ) : ?>
+                        <<?php echo esc_attr( $header_style ); ?> class="hero-banner__header">
+                            <?php echo esc_html( $header ); ?>
+                        </<?php echo esc_attr( $header_style ); ?>>
+                    <?php endif; ?>
 
-                <!-- WYSIWYG -->
-                <?php if ( $wysiwyg_text ) : ?>
-                    <div class="hero-banner__wysiwyg">
-                        <?php echo wp_kses_post( $wysiwyg_text ); ?>
-                    </div>
-                <?php endif; ?>
+                    <!-- WYSIWYG -->
+                    <?php if ( $wysiwyg_text ) : ?>
+                        <div class="hero-banner__wysiwyg">
+                            <?php echo wp_kses_post( $wysiwyg_text ); ?>
+                        </div>
+                    <?php endif; ?>
 
-                <!-- Buttons -->
-                <?php if($primary_button || $secondary_button): ?>
-                    <div class="hero-banner__buttons">
-                        <?php if($primary_button): ?>
-                            <?php
-                                $button = $primary_button;
-                                include get_stylesheet_directory() . '/components/button.php';
-                            ?>
-                        <?php endif; ?>
-                        <?php if($secondary_button): ?>
-                            <?php
-                                $button = $secondary_button;
-                                include get_stylesheet_directory() . '/components/button.php';
-                            ?>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
+                    <!-- Buttons -->
+                    <?php if($primary_button || $secondary_button): ?>
+                        <div class="hero-banner__buttons">
+                            <?php if($primary_button): ?>
+                                <?php
+                                    $button = $primary_button;
+                                    include get_stylesheet_directory() . '/components/button.php';
+                                ?>
+                            <?php endif; ?>
+                            <?php if($secondary_button): ?>
+                                <?php
+                                    $button = $secondary_button;
+                                    include get_stylesheet_directory() . '/components/button.php';
+                                ?>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
 
         <!-- Video -->
