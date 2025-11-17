@@ -30,7 +30,11 @@
         }
 
         &--tertiary {
-            min-height: 50rem;
+            min-height: 20rem;
+
+            @include responsive('md') {
+                min-height: 50rem;
+            }
 
             .hero-banner__text{
                 width: max-content;
