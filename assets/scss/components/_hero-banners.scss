@@ -93,3 +93,48 @@
         }
     }
 }
+
+.post-hero-banner {
+    display: flex;
+    flex-direction: column;
+
+    @include responsive('xl') {
+        flex-direction: row;
+        max-height: 30rem;
+    }
+
+    &__image {
+        flex-basis: 100%;
+        object-fit: cover;
+        max-height: 20rem;
+
+        @include responsive('xl') {
+            flex-basis: 50%;
+            max-height: 100%;
+        }
+    }
+
+    &__info {
+        flex-basis: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+
+        @include responsive('xl') {
+            padding: 4rem;
+            flex-basis: 50%;
+        }
+    }
+
+    &__meta {
+        background-color: $grey;
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+    }
+}

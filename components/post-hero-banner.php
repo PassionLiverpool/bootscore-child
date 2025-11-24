@@ -3,27 +3,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
     // Appearance
-    $banner_colour = get_field('hero_banner_background_colour') ?? 'white';
-    $banner_image = get_field('hero_banner_background_image');
+    $banner_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+
 ?>
 
-<header class="post-hero-banner background--<?php echo $background_colour ?>">
-    <?php if($banner_image): ?>
+<section class="post-hero-banner">
+    <div class="post-hero-banner__info">
+        <div class="post-hero-banner__text">
+            <!-- Post Title -->
+            <h1 class="post-hero-banner__header">
+                <?php echo the_title(); ?>
+            </h1>
+        </div>
+
+        <div class="post-hero-banner__categories">
+            <?php bootscore_category_badge(); ?>
+        </div>
+    </div>
+    <?php if($banner_image_url): ?>
         <img 
-            src="<?php echo esc_url($banner_image['url']); ?>" 
+            src="<?php echo esc_url($banner_image_url); ?>" 
             alt="" 
             fetchpriority="high"
-            class="post-hero-banner__bg-image"
+            class="post-hero-banner__image"
         >
     <?php endif; ?>
-    <div class="container style--<?php echo $hero_banner_style; ?>">
+</section>
 
-            <div class="post-hero-banner__text font--<?php echo $font_colour; ?>">
-                <!-- Post Title -->
-                    <h1 class="post-hero-banner__header">
-                        <?php echo the_title() ; ?>
-                    <h1>
-            </div>
+<section class="post-hero-banner__meta">
+    <div class="container">
+        <?php bootscore_date(); ?>
 
+        <!-- AddToAny Share Buttons -->
+        <?php if (function_exists('ADDTOANY_SHARE_SAVE_KIT')) {
+            ADDTOANY_SHARE_SAVE_KIT();
+        } ?>
     </div>
-</header>
+</section>

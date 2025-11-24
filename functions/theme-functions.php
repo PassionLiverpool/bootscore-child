@@ -85,3 +85,14 @@ function load_dashicons_front_end() {
     wp_enqueue_style( 'dashicons' );
 }
 add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
+
+add_action('init', function () {
+    // Removes Featured Image after hero
+    remove_action('bootscore_after_featured_image', 'bootscore_post_thumbnail');
+
+    // Removes Featured Image before content
+    remove_action('bootscore_before_content', 'bootscore_post_thumbnail');
+
+    // Some Bootscore versions also attach it here:
+    remove_action('bootscore_before_main', 'bootscore_post_thumbnail');
+});
