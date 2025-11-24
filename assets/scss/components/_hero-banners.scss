@@ -97,20 +97,24 @@
 .post-hero-banner {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
 
     @include responsive('xl') {
         flex-direction: row;
-        max-height: 30rem;
+        height: 30rem;
     }
 
     &__image {
         flex-basis: 100%;
         object-fit: cover;
-        max-height: 20rem;
+        height: 20rem;
+        width: 100%;
 
         @include responsive('xl') {
+            width: 50%;
             flex-basis: 50%;
-            max-height: 100%;
+            height: 100%;
         }
     }
 
@@ -120,8 +124,10 @@
         flex-direction: column;
         justify-content: center;
         padding: 2rem;
+        width: 100%;
 
         @include responsive('xl') {
+            width: 50%;
             padding: 4rem;
             flex-basis: 50%;
         }

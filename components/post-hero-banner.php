@@ -35,8 +35,12 @@ if ( ! defined( 'ABSPATH' ) ) {
         <span>Published <?php echo get_the_date('j M Y'); ?></span>
 
         <!-- AddToAny Share Buttons -->
-        <?php if (function_exists('ADDTOANY_SHARE_SAVE_KIT')) {
-            ADDTOANY_SHARE_SAVE_KIT();
-        } ?>
+        <span>
+            Share: 
+            <?php if (function_exists('ADDTOANY_SHARE_SAVE_KIT')) {
+                ADDTOANY_SHARE_SAVE_KIT();
+            } ?>
+        </span>
+
     </div>
 </section>
