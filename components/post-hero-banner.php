@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section class="post-hero-banner__meta">
     <div class="container">
-        <?php bootscore_date(); ?>
+        <span>Published <?php echo get_the_date('j M Y'); ?></span>
 
         <!-- AddToAny Share Buttons -->
         <?php if (function_exists('ADDTOANY_SHARE_SAVE_KIT')) {
