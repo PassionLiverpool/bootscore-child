@@ -1,5 +1,6 @@
 <?php
     $permalink = get_permalink( $blog_post->ID );
+    $placeholder_image = get_field('placeholder_blog_post_image', 'option');
     $featured_image = get_the_post_thumbnail( $blog_post->ID, 'medium', false, array('loading'=>'lazy') );
     $title = get_the_title( $blog_post->ID );
     $excerpt = get_the_excerpt( $blog_post->ID );
@@ -8,12 +9,14 @@
 
 <li class="blog-post blog-post--large">
     <!-- Featured Image -->
-    <?php if ( $featured_image ) : ?>
-        <a href="<?php echo esc_url( $permalink ); ?>" class="blog-post__image">
-            <span class="screen-reader-text"> Read more about <?php echo esc_html( $title ); ?></span>
+    <a href="<?php echo esc_url( $permalink ); ?>" class="blog-post__image">
+        <span class="screen-reader-text"> Read more about <?php echo esc_html( $title ); ?></span>
+        <?php if ( $featured_image ) : ?>
             <?php echo $featured_image; ?>
-        </a>
-    <?php endif; ?>
+        <?php else:
+            echo wp_get_attachment_image($placeholder_image['id'], 'medium', false, array('loading'=>'lazy'));;
+        endif; ?>
+    </a>
 
     <div class="blog-post__content">
 

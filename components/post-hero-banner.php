@@ -3,7 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
     // Appearance
-    $banner_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+    $banner_image_id = get_post_thumbnail_id(get_the_ID());
+    $placeholder_image = get_field('placeholder_blog_post_image', 'option');
 
 ?>
 
@@ -20,14 +21,27 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php bootscore_category_badge(); ?>
         </div>
     </div>
-    <?php if($banner_image_url): ?>
-        <img 
-            src="<?php echo esc_url($banner_image_url); ?>" 
-            alt="" 
-            fetchpriority="high"
-            class="post-hero-banner__image"
-        >
-    <?php endif; ?>
+    <?php if($banner_image_id):
+        echo wp_get_attachment_image(
+            $banner_image_id,
+            'full',
+            false,
+            array(
+                'loading' => 'lazy',
+                'class'   => 'post-hero-banner__image'
+            )
+        );
+    else:
+        echo wp_get_attachment_image(
+            $placeholder_image['id'],
+            'full',
+            false,
+            array(
+                'loading' => 'lazy',
+                'class'   => 'post-hero-banner__image'
+            )
+        );
+    endif; ?>
 </section>
 
 <section class="post-hero-banner__meta">
